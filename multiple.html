@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <h1>Multiple Vue Instances</h1>
+
+    <div id="app-one">
+        <h2>{{title}}</h2>
+        <p>{{greet}}</p>
+    </div>
+
+    <div id="app-two">
+        <h2>{{title}}</h2>
+        <p>{{greet}}</p>
+        <button v-on:click="changeTitle">Change App One Title</button>
+    </div>
+    <script>
+        var one = new Vue({
+            el:'#app-one',
+            data:{
+                title:'Vue App One'
+            },
+            
+            methods:{
+
+            },
+            computed:{
+                greet:function(){
+                    return 'Hello from app one'
+                }
+
+            }
+        });
+
+        var two = new Vue({
+            el:'#app-two',
+            data:{
+                title:'Vue App Two'
+            },
+            
+            methods:{
+                changeTitle:function(){
+                    one.title = "Title changed";
+                },
+            },
+            computed:{
+                greet:function(){
+                    return 'Yo dudes,this is app 2 speaking to ya :)';
+                }
+            }
+        });
+
+        two.title = "Changed from ouside"
+    </script>
+</body>
+</html>
