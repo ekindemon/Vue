@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Keyboard Events</h1>
+        <label for="">Name:</label>
+        <input type="text" v-model = "name">
+        <span>{{name}}</span>
+        <br>
+        <br>
+        <label for="">Age:</label>
+        <input type="text" v-model = "age">
+        <span>{{age}}</span>
+    </div>
+    <script>
+    new Vue({
+        el:'#app',
+        data:{
+            name:'',
+            age:'',
+        },
+        methods:{
+            logName:function(){
+                console.log('you entered your name')
+            },
+            logAge:function(){
+                console.log('you entered your age')
+            }
+        }
+    })
+    </script>
+</body>
+</html>

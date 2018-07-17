@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+
+    <ul id="v-for-object" class="demo">
+        <li v-for="a in 10" v-if="!(a === 5)"> 
+            {{a}}
+        </li>
+
+        <input type="number" v-model="selected">
+        <p>Message is: {{selected}}</p>
+
+    </ul>
+
+
+    <select v-model="selected">
+        <!-- 内联对象字面量 -->
+    <option v-bind:value="{ number:321}">123</option>
+    </select>
+    <script>
+        new Vue({
+            el: '#v-for-object',
+            data: {
+                selected:"",
+                object: {
+                    firstName: 'John',
+                    lastName: 'Doe',
+                    age: 30
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
